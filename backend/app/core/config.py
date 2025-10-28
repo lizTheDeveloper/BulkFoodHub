@@ -8,6 +8,10 @@ from pydantic_settings import BaseSettings
 from pydantic import validator
 import os
 from pathlib import Path
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 
 class Settings(BaseSettings):
@@ -20,8 +24,8 @@ class Settings(BaseSettings):
     environment: str = "development"
     
     # Database Configuration
-    database_url: str = "postgresql://annhoward@localhost:5432/bulkfoodhub_dev"
-    database_url_test: str = "postgresql://annhoward@localhost:5432/bulkfoodhub_test"
+    database_url: str = "postgresql://localhost:5432/bulkfoodhub_dev"
+    database_url_test: str = "postgresql://localhost:5432/bulkfoodhub_test"
     
     # Redis Configuration
     redis_url: str = "redis://localhost:6379/0"
@@ -47,18 +51,18 @@ class Settings(BaseSettings):
     s3_bucket_name: str = "bulkfoodhub-images"
     
     # CORS Configuration
-    allowed_origins: List[str] = ["http://localhost:3000", "http://localhost:5173"]
+    allowed_origins: str = "http://localhost:3000,http://localhost:5173"
     
     # Logging Configuration
     log_level: str = "INFO"
     log_format: str = "json"
     
-    @validator("allowed_origins", pre=True)
-    def parse_cors_origins(cls, v):
-        """Parse CORS origins from string or list."""
-        if isinstance(v, str):
-            return [origin.strip() for origin in v.split(",")]
-        return v
+    @property
+    def cors_origins(self) -> List[str]:
+        """Get CORS origins as a list."""
+        if not self.allowed_origins.strip():
+            return []
+        return [origin.strip() for origin in self.allowed_origins.split(",")]
     
     @property
     def is_production(self) -> bool:

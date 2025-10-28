@@ -2332,3 +2332,233 @@ FROM pg_catalog.pg_type JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.
 WHERE pg_catalog.pg_type.typname = %(typname_1)s AND pg_catalog.pg_type_is_visible(pg_catalog.pg_type.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
 2025-10-28 07:14:02,779 - sqlalchemy.engine.Engine - INFO - [cached since 0.01838s ago] {'typname_1': 'paymentstatus', 'nspname_1': 'pg_catalog'}
 2025-10-28 07:14:02,787 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-28 07:15:00,575 - sqlalchemy.engine.Engine - INFO - select pg_catalog.version()
+2025-10-28 07:15:00,575 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-28 07:15:00,576 - sqlalchemy.engine.Engine - INFO - select current_schema()
+2025-10-28 07:15:00,576 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-28 07:15:00,576 - sqlalchemy.engine.Engine - INFO - show standard_conforming_strings
+2025-10-28 07:15:00,576 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-28 07:15:00,577 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-28 07:15:00,578 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-10-28 07:15:00,578 - sqlalchemy.engine.Engine - INFO - [generated in 0.00016s] {'table_name': 'users', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-10-28 07:15:00,583 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-10-28 07:15:00,583 - sqlalchemy.engine.Engine - INFO - [cached since 0.004718s ago] {'table_name': 'addresses', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-10-28 07:15:00,583 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-10-28 07:15:00,583 - sqlalchemy.engine.Engine - INFO - [cached since 0.00535s ago] {'table_name': 'suppliers', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-10-28 07:15:00,584 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-10-28 07:15:00,584 - sqlalchemy.engine.Engine - INFO - [cached since 0.005747s ago] {'table_name': 'products', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-10-28 07:15:00,584 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-10-28 07:15:00,584 - sqlalchemy.engine.Engine - INFO - [cached since 0.006218s ago] {'table_name': 'product_images', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-10-28 07:15:00,585 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-10-28 07:15:00,585 - sqlalchemy.engine.Engine - INFO - [cached since 0.006852s ago] {'table_name': 'orders', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-10-28 07:15:00,586 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-10-28 07:15:00,586 - sqlalchemy.engine.Engine - INFO - [cached since 0.007809s ago] {'table_name': 'order_items', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-10-28 07:15:00,589 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-10-28 07:15:00,589 - sqlalchemy.engine.Engine - INFO - [cached since 0.01136s ago] {'table_name': 'pricing_tiers', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-10-28 07:15:00,590 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-10-28 07:15:00,590 - sqlalchemy.engine.Engine - INFO - [cached since 0.01202s ago] {'table_name': 'audit_logs', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-10-28 07:15:00,591 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_type.typname 
+FROM pg_catalog.pg_type JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_type.typnamespace 
+WHERE pg_catalog.pg_type.typname = %(typname_1)s AND pg_catalog.pg_type_is_visible(pg_catalog.pg_type.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-10-28 07:15:00,591 - sqlalchemy.engine.Engine - INFO - [generated in 0.00009s] {'typname_1': 'userrole', 'nspname_1': 'pg_catalog'}
+2025-10-28 07:15:00,592 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_type.typname 
+FROM pg_catalog.pg_type JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_type.typnamespace 
+WHERE pg_catalog.pg_type.typname = %(typname_1)s AND pg_catalog.pg_type_is_visible(pg_catalog.pg_type.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-10-28 07:15:00,592 - sqlalchemy.engine.Engine - INFO - [cached since 0.0007522s ago] {'typname_1': 'supplierstatus', 'nspname_1': 'pg_catalog'}
+2025-10-28 07:15:00,593 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_type.typname 
+FROM pg_catalog.pg_type JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_type.typnamespace 
+WHERE pg_catalog.pg_type.typname = %(typname_1)s AND pg_catalog.pg_type_is_visible(pg_catalog.pg_type.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-10-28 07:15:00,593 - sqlalchemy.engine.Engine - INFO - [cached since 0.00123s ago] {'typname_1': 'productcategory', 'nspname_1': 'pg_catalog'}
+2025-10-28 07:15:00,593 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_type.typname 
+FROM pg_catalog.pg_type JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_type.typnamespace 
+WHERE pg_catalog.pg_type.typname = %(typname_1)s AND pg_catalog.pg_type_is_visible(pg_catalog.pg_type.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-10-28 07:15:00,593 - sqlalchemy.engine.Engine - INFO - [cached since 0.001663s ago] {'typname_1': 'orderstatus', 'nspname_1': 'pg_catalog'}
+2025-10-28 07:15:00,593 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_type.typname 
+FROM pg_catalog.pg_type JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_type.typnamespace 
+WHERE pg_catalog.pg_type.typname = %(typname_1)s AND pg_catalog.pg_type_is_visible(pg_catalog.pg_type.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-10-28 07:15:00,593 - sqlalchemy.engine.Engine - INFO - [cached since 0.002047s ago] {'typname_1': 'paymentstatus', 'nspname_1': 'pg_catalog'}
+2025-10-28 07:15:00,594 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-28 07:15:02,832 - sqlalchemy.engine.Engine - INFO - select pg_catalog.version()
+2025-10-28 07:15:02,832 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-28 07:15:02,832 - sqlalchemy.engine.Engine - INFO - select current_schema()
+2025-10-28 07:15:02,833 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-28 07:15:02,833 - sqlalchemy.engine.Engine - INFO - show standard_conforming_strings
+2025-10-28 07:15:02,833 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-28 07:15:02,834 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-28 07:15:02,835 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-10-28 07:15:02,835 - sqlalchemy.engine.Engine - INFO - [generated in 0.00013s] {'table_name': 'users', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-10-28 07:15:02,837 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-10-28 07:15:02,837 - sqlalchemy.engine.Engine - INFO - [cached since 0.002168s ago] {'table_name': 'addresses', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-10-28 07:15:02,838 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-10-28 07:15:02,838 - sqlalchemy.engine.Engine - INFO - [cached since 0.002841s ago] {'table_name': 'suppliers', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-10-28 07:15:02,839 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-10-28 07:15:02,839 - sqlalchemy.engine.Engine - INFO - [cached since 0.003704s ago] {'table_name': 'products', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-10-28 07:15:02,839 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-10-28 07:15:02,840 - sqlalchemy.engine.Engine - INFO - [cached since 0.004303s ago] {'table_name': 'product_images', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-10-28 07:15:02,840 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-10-28 07:15:02,840 - sqlalchemy.engine.Engine - INFO - [cached since 0.004808s ago] {'table_name': 'orders', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-10-28 07:15:02,841 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-10-28 07:15:02,841 - sqlalchemy.engine.Engine - INFO - [cached since 0.005455s ago] {'table_name': 'order_items', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-10-28 07:15:02,841 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-10-28 07:15:02,841 - sqlalchemy.engine.Engine - INFO - [cached since 0.005907s ago] {'table_name': 'pricing_tiers', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-10-28 07:15:02,842 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-10-28 07:15:02,842 - sqlalchemy.engine.Engine - INFO - [cached since 0.006441s ago] {'table_name': 'audit_logs', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-10-28 07:15:02,843 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_type.typname 
+FROM pg_catalog.pg_type JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_type.typnamespace 
+WHERE pg_catalog.pg_type.typname = %(typname_1)s AND pg_catalog.pg_type_is_visible(pg_catalog.pg_type.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-10-28 07:15:02,843 - sqlalchemy.engine.Engine - INFO - [generated in 0.00008s] {'typname_1': 'userrole', 'nspname_1': 'pg_catalog'}
+2025-10-28 07:15:02,844 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_type.typname 
+FROM pg_catalog.pg_type JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_type.typnamespace 
+WHERE pg_catalog.pg_type.typname = %(typname_1)s AND pg_catalog.pg_type_is_visible(pg_catalog.pg_type.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-10-28 07:15:02,845 - sqlalchemy.engine.Engine - INFO - [cached since 0.001529s ago] {'typname_1': 'supplierstatus', 'nspname_1': 'pg_catalog'}
+2025-10-28 07:15:02,845 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_type.typname 
+FROM pg_catalog.pg_type JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_type.typnamespace 
+WHERE pg_catalog.pg_type.typname = %(typname_1)s AND pg_catalog.pg_type_is_visible(pg_catalog.pg_type.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-10-28 07:15:02,845 - sqlalchemy.engine.Engine - INFO - [cached since 0.002497s ago] {'typname_1': 'productcategory', 'nspname_1': 'pg_catalog'}
+2025-10-28 07:15:02,846 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_type.typname 
+FROM pg_catalog.pg_type JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_type.typnamespace 
+WHERE pg_catalog.pg_type.typname = %(typname_1)s AND pg_catalog.pg_type_is_visible(pg_catalog.pg_type.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-10-28 07:15:02,846 - sqlalchemy.engine.Engine - INFO - [cached since 0.003283s ago] {'typname_1': 'orderstatus', 'nspname_1': 'pg_catalog'}
+2025-10-28 07:15:02,847 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_type.typname 
+FROM pg_catalog.pg_type JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_type.typnamespace 
+WHERE pg_catalog.pg_type.typname = %(typname_1)s AND pg_catalog.pg_type_is_visible(pg_catalog.pg_type.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-10-28 07:15:02,847 - sqlalchemy.engine.Engine - INFO - [cached since 0.003916s ago] {'typname_1': 'paymentstatus', 'nspname_1': 'pg_catalog'}
+2025-10-28 07:15:02,847 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-28 07:24:05,058 - sqlalchemy.engine.Engine - INFO - select pg_catalog.version()
+2025-10-28 07:24:05,058 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-28 07:24:05,059 - sqlalchemy.engine.Engine - INFO - select current_schema()
+2025-10-28 07:24:05,059 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-28 07:24:05,060 - sqlalchemy.engine.Engine - INFO - show standard_conforming_strings
+2025-10-28 07:24:05,060 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-28 07:24:05,060 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-28 07:24:05,062 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-10-28 07:24:05,062 - sqlalchemy.engine.Engine - INFO - [generated in 0.00012s] {'table_name': 'users', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-10-28 07:24:05,064 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-10-28 07:24:05,064 - sqlalchemy.engine.Engine - INFO - [cached since 0.002078s ago] {'table_name': 'addresses', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-10-28 07:24:05,065 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-10-28 07:24:05,065 - sqlalchemy.engine.Engine - INFO - [cached since 0.002854s ago] {'table_name': 'suppliers', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-10-28 07:24:05,065 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-10-28 07:24:05,065 - sqlalchemy.engine.Engine - INFO - [cached since 0.00348s ago] {'table_name': 'products', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-10-28 07:24:05,066 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-10-28 07:24:05,066 - sqlalchemy.engine.Engine - INFO - [cached since 0.004007s ago] {'table_name': 'product_images', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-10-28 07:24:05,066 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-10-28 07:24:05,066 - sqlalchemy.engine.Engine - INFO - [cached since 0.004458s ago] {'table_name': 'orders', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-10-28 07:24:05,067 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-10-28 07:24:05,067 - sqlalchemy.engine.Engine - INFO - [cached since 0.004953s ago] {'table_name': 'order_items', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-10-28 07:24:05,067 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-10-28 07:24:05,067 - sqlalchemy.engine.Engine - INFO - [cached since 0.00536s ago] {'table_name': 'pricing_tiers', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-10-28 07:24:05,067 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-10-28 07:24:05,068 - sqlalchemy.engine.Engine - INFO - [cached since 0.005761s ago] {'table_name': 'audit_logs', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-10-28 07:24:05,069 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_type.typname 
+FROM pg_catalog.pg_type JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_type.typnamespace 
+WHERE pg_catalog.pg_type.typname = %(typname_1)s AND pg_catalog.pg_type_is_visible(pg_catalog.pg_type.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-10-28 07:24:05,070 - sqlalchemy.engine.Engine - INFO - [generated in 0.00021s] {'typname_1': 'userrole', 'nspname_1': 'pg_catalog'}
+2025-10-28 07:24:05,071 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_type.typname 
+FROM pg_catalog.pg_type JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_type.typnamespace 
+WHERE pg_catalog.pg_type.typname = %(typname_1)s AND pg_catalog.pg_type_is_visible(pg_catalog.pg_type.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-10-28 07:24:05,071 - sqlalchemy.engine.Engine - INFO - [cached since 0.001478s ago] {'typname_1': 'supplierstatus', 'nspname_1': 'pg_catalog'}
+2025-10-28 07:24:05,072 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_type.typname 
+FROM pg_catalog.pg_type JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_type.typnamespace 
+WHERE pg_catalog.pg_type.typname = %(typname_1)s AND pg_catalog.pg_type_is_visible(pg_catalog.pg_type.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-10-28 07:24:05,072 - sqlalchemy.engine.Engine - INFO - [cached since 0.002658s ago] {'typname_1': 'productcategory', 'nspname_1': 'pg_catalog'}
+2025-10-28 07:24:05,073 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_type.typname 
+FROM pg_catalog.pg_type JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_type.typnamespace 
+WHERE pg_catalog.pg_type.typname = %(typname_1)s AND pg_catalog.pg_type_is_visible(pg_catalog.pg_type.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-10-28 07:24:05,073 - sqlalchemy.engine.Engine - INFO - [cached since 0.004038s ago] {'typname_1': 'orderstatus', 'nspname_1': 'pg_catalog'}
+2025-10-28 07:24:05,074 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_type.typname 
+FROM pg_catalog.pg_type JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_type.typnamespace 
+WHERE pg_catalog.pg_type.typname = %(typname_1)s AND pg_catalog.pg_type_is_visible(pg_catalog.pg_type.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-10-28 07:24:05,074 - sqlalchemy.engine.Engine - INFO - [cached since 0.004888s ago] {'typname_1': 'paymentstatus', 'nspname_1': 'pg_catalog'}
+2025-10-28 07:24:05,075 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-28 07:24:19,739 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-28 07:24:19,742 - sqlalchemy.engine.Engine - INFO - SELECT count(*) AS count_1 
+FROM (SELECT products.id AS products_id, products.supplier_id AS products_supplier_id, products.name AS products_name, products.description AS products_description, products.category AS products_category, products.sku AS products_sku, products.price_per_unit AS products_price_per_unit, products.unit_type AS products_unit_type, products.available_quantity AS products_available_quantity, products.minimum_order_quantity AS products_minimum_order_quantity, products.nutritional_info AS products_nutritional_info, products.ingredients AS products_ingredients, products.allergens AS products_allergens, products.expiration_date AS products_expiration_date, products.is_active AS products_is_active, products.is_approved AS products_is_approved, products.created_at AS products_created_at, products.updated_at AS products_updated_at 
+FROM products 
+WHERE products.category = %(category_1)s AND products.is_active = true) AS anon_1
+2025-10-28 07:24:19,742 - sqlalchemy.engine.Engine - INFO - [generated in 0.00012s] {'category_1': 'NUTS'}
+2025-10-28 07:24:19,746 - sqlalchemy.engine.Engine - INFO - SELECT count(*) AS count_1 
+FROM (SELECT products.id AS products_id, products.supplier_id AS products_supplier_id, products.name AS products_name, products.description AS products_description, products.category AS products_category, products.sku AS products_sku, products.price_per_unit AS products_price_per_unit, products.unit_type AS products_unit_type, products.available_quantity AS products_available_quantity, products.minimum_order_quantity AS products_minimum_order_quantity, products.nutritional_info AS products_nutritional_info, products.ingredients AS products_ingredients, products.allergens AS products_allergens, products.expiration_date AS products_expiration_date, products.is_active AS products_is_active, products.is_approved AS products_is_approved, products.created_at AS products_created_at, products.updated_at AS products_updated_at 
+FROM products 
+WHERE products.category = %(category_1)s AND products.is_active = true) AS anon_1
+2025-10-28 07:24:19,746 - sqlalchemy.engine.Engine - INFO - [cached since 0.004385s ago] {'category_1': 'GRAINS'}
+2025-10-28 07:24:19,747 - sqlalchemy.engine.Engine - INFO - SELECT count(*) AS count_1 
+FROM (SELECT products.id AS products_id, products.supplier_id AS products_supplier_id, products.name AS products_name, products.description AS products_description, products.category AS products_category, products.sku AS products_sku, products.price_per_unit AS products_price_per_unit, products.unit_type AS products_unit_type, products.available_quantity AS products_available_quantity, products.minimum_order_quantity AS products_minimum_order_quantity, products.nutritional_info AS products_nutritional_info, products.ingredients AS products_ingredients, products.allergens AS products_allergens, products.expiration_date AS products_expiration_date, products.is_active AS products_is_active, products.is_approved AS products_is_approved, products.created_at AS products_created_at, products.updated_at AS products_updated_at 
+FROM products 
+WHERE products.category = %(category_1)s AND products.is_active = true) AS anon_1
+2025-10-28 07:24:19,747 - sqlalchemy.engine.Engine - INFO - [cached since 0.005049s ago] {'category_1': 'LEGUMES'}
+2025-10-28 07:24:19,747 - sqlalchemy.engine.Engine - INFO - SELECT count(*) AS count_1 
+FROM (SELECT products.id AS products_id, products.supplier_id AS products_supplier_id, products.name AS products_name, products.description AS products_description, products.category AS products_category, products.sku AS products_sku, products.price_per_unit AS products_price_per_unit, products.unit_type AS products_unit_type, products.available_quantity AS products_available_quantity, products.minimum_order_quantity AS products_minimum_order_quantity, products.nutritional_info AS products_nutritional_info, products.ingredients AS products_ingredients, products.allergens AS products_allergens, products.expiration_date AS products_expiration_date, products.is_active AS products_is_active, products.is_approved AS products_is_approved, products.created_at AS products_created_at, products.updated_at AS products_updated_at 
+FROM products 
+WHERE products.category = %(category_1)s AND products.is_active = true) AS anon_1
+2025-10-28 07:24:19,747 - sqlalchemy.engine.Engine - INFO - [cached since 0.005547s ago] {'category_1': 'DRIED_FRUITS'}
+2025-10-28 07:24:19,748 - sqlalchemy.engine.Engine - INFO - SELECT count(*) AS count_1 
+FROM (SELECT products.id AS products_id, products.supplier_id AS products_supplier_id, products.name AS products_name, products.description AS products_description, products.category AS products_category, products.sku AS products_sku, products.price_per_unit AS products_price_per_unit, products.unit_type AS products_unit_type, products.available_quantity AS products_available_quantity, products.minimum_order_quantity AS products_minimum_order_quantity, products.nutritional_info AS products_nutritional_info, products.ingredients AS products_ingredients, products.allergens AS products_allergens, products.expiration_date AS products_expiration_date, products.is_active AS products_is_active, products.is_approved AS products_is_approved, products.created_at AS products_created_at, products.updated_at AS products_updated_at 
+FROM products 
+WHERE products.category = %(category_1)s AND products.is_active = true) AS anon_1
+2025-10-28 07:24:19,748 - sqlalchemy.engine.Engine - INFO - [cached since 0.006039s ago] {'category_1': 'CEREALS'}
+2025-10-28 07:24:19,749 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-28 07:24:26,984 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-28 07:24:26,985 - sqlalchemy.engine.Engine - INFO - SELECT count(*) AS count_1 
+FROM (SELECT products.id AS products_id, products.supplier_id AS products_supplier_id, products.name AS products_name, products.description AS products_description, products.category AS products_category, products.sku AS products_sku, products.price_per_unit AS products_price_per_unit, products.unit_type AS products_unit_type, products.available_quantity AS products_available_quantity, products.minimum_order_quantity AS products_minimum_order_quantity, products.nutritional_info AS products_nutritional_info, products.ingredients AS products_ingredients, products.allergens AS products_allergens, products.expiration_date AS products_expiration_date, products.is_active AS products_is_active, products.is_approved AS products_is_approved, products.created_at AS products_created_at, products.updated_at AS products_updated_at 
+FROM products ORDER BY products.created_at DESC) AS anon_1
+2025-10-28 07:24:26,986 - sqlalchemy.engine.Engine - INFO - [generated in 0.00011s] {}
+2025-10-28 07:24:26,990 - sqlalchemy.engine.Engine - INFO - SELECT anon_1.products_id AS anon_1_products_id, anon_1.products_supplier_id AS anon_1_products_supplier_id, anon_1.products_name AS anon_1_products_name, anon_1.products_description AS anon_1_products_description, anon_1.products_category AS anon_1_products_category, anon_1.products_sku AS anon_1_products_sku, anon_1.products_price_per_unit AS anon_1_products_price_per_unit, anon_1.products_unit_type AS anon_1_products_unit_type, anon_1.products_available_quantity AS anon_1_products_available_quantity, anon_1.products_minimum_order_quantity AS anon_1_products_minimum_order_quantity, anon_1.products_nutritional_info AS anon_1_products_nutritional_info, anon_1.products_ingredients AS anon_1_products_ingredients, anon_1.products_allergens AS anon_1_products_allergens, anon_1.products_expiration_date AS anon_1_products_expiration_date, anon_1.products_is_active AS anon_1_products_is_active, anon_1.products_is_approved AS anon_1_products_is_approved, anon_1.products_created_at AS anon_1_products_created_at, anon_1.products_updated_at AS anon_1_products_updated_at, users_1.id AS users_1_id, users_1.email AS users_1_email, users_1.hashed_password AS users_1_hashed_password, users_1.first_name AS users_1_first_name, users_1.last_name AS users_1_last_name, users_1.phone AS users_1_phone, users_1.role AS users_1_role, users_1.is_active AS users_1_is_active, users_1.is_verified AS users_1_is_verified, users_1.created_at AS users_1_created_at, users_1.updated_at AS users_1_updated_at, suppliers_1.id AS suppliers_1_id, suppliers_1.user_id AS suppliers_1_user_id, suppliers_1.business_name AS suppliers_1_business_name, suppliers_1.business_license AS suppliers_1_business_license, suppliers_1.tax_id AS suppliers_1_tax_id, suppliers_1.food_safety_certification AS suppliers_1_food_safety_certification, suppliers_1.insurance_documentation AS suppliers_1_insurance_documentation, suppliers_1.bank_account_info AS suppliers_1_bank_account_info, suppliers_1.business_references AS suppliers_1_business_references, suppliers_1.status AS suppliers_1_status, suppliers_1.verification_notes AS suppliers_1_verification_notes, suppliers_1.approved_at AS suppliers_1_approved_at, suppliers_1.approved_by AS suppliers_1_approved_by, suppliers_1.created_at AS suppliers_1_created_at, suppliers_1.updated_at AS suppliers_1_updated_at, product_images_1.id AS product_images_1_id, product_images_1.product_id AS product_images_1_product_id, product_images_1.image_url AS product_images_1_image_url, product_images_1.alt_text AS product_images_1_alt_text, product_images_1.is_primary AS product_images_1_is_primary, product_images_1.sort_order AS product_images_1_sort_order, product_images_1.created_at AS product_images_1_created_at 
+FROM (SELECT products.id AS products_id, products.supplier_id AS products_supplier_id, products.name AS products_name, products.description AS products_description, products.category AS products_category, products.sku AS products_sku, products.price_per_unit AS products_price_per_unit, products.unit_type AS products_unit_type, products.available_quantity AS products_available_quantity, products.minimum_order_quantity AS products_minimum_order_quantity, products.nutritional_info AS products_nutritional_info, products.ingredients AS products_ingredients, products.allergens AS products_allergens, products.expiration_date AS products_expiration_date, products.is_active AS products_is_active, products.is_approved AS products_is_approved, products.created_at AS products_created_at, products.updated_at AS products_updated_at 
+FROM products ORDER BY products.created_at DESC 
+ LIMIT %(param_1)s OFFSET %(param_2)s) AS anon_1 LEFT OUTER JOIN suppliers AS suppliers_1 ON suppliers_1.id = anon_1.products_supplier_id LEFT OUTER JOIN users AS users_1 ON users_1.id = suppliers_1.user_id LEFT OUTER JOIN product_images AS product_images_1 ON anon_1.products_id = product_images_1.product_id ORDER BY anon_1.products_created_at DESC
+2025-10-28 07:24:26,990 - sqlalchemy.engine.Engine - INFO - [generated in 0.00014s] {'param_1': 20, 'param_2': 0}
+2025-10-28 07:24:26,996 - sqlalchemy.engine.Engine - INFO - ROLLBACK

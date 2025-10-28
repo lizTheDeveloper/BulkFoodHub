@@ -3,12 +3,15 @@ Authentication utilities for JWT token management and password hashing.
 """
 
 from datetime import datetime, timedelta
-from typing import Optional, Dict, Any
+from typing import Optional, Dict, Any, List
 from jose import JWTError, jwt
 from passlib.context import CryptContext
-from fastapi import HTTPException, status
+from fastapi import HTTPException, status, Depends
+from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
+from sqlalchemy.orm import Session
 from app.core.config import settings
 from app.models import User
+from app.db.database import get_db
 
 # Password hashing context
 pwd_context = CryptContext(schemes=["argon2"], deprecated="auto")
@@ -103,3 +106,40 @@ def get_user_from_token(db, token: str) -> Optional[User]:
         return db.query(User).filter(User.id == int(user_id)).first()
     except HTTPException:
         return None
+
+
+# Security scheme
+security = HTTPBearer()
+
+
+def get_current_user(
+    credentials: HTTPAuthorizationCredentials = Depends(security),
+    db: Session = Depends(get_db)
+) -> User:
+    """Get current authenticated user from JWT token."""
+    token = credentials.credentials
+    user = get_user_from_token(db, token)
+    if user is None:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Could not validate credentials",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+    if not user.is_active:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Inactive user"
+        )
+    return user
+
+
+def require_roles(allowed_roles: List[str]):
+    """Create a dependency that requires specific user roles."""
+    def role_checker(current_user: User = Depends(get_current_user)) -> User:
+        if current_user.role.value not in allowed_roles:
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN,
+                detail="Not enough permissions"
+            )
+        return current_user
+    return role_checker
