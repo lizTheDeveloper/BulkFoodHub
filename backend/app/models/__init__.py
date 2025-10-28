@@ -77,7 +77,7 @@ class User(Base):
     # Relationships
     addresses = relationship("Address", back_populates="user", cascade="all, delete-orphan")
     orders = relationship("Order", back_populates="user", cascade="all, delete-orphan")
-    supplier_profile = relationship("Supplier", back_populates="user", uselist=False)
+    supplier_profile = relationship("Supplier", back_populates="user", uselist=False, foreign_keys="Supplier.user_id")
     
     # Indexes
     __table_args__ = (
@@ -136,7 +136,7 @@ class Supplier(Base):
     
     # Relationships
     user = relationship("User", back_populates="supplier_profile", foreign_keys=[user_id])
-    approver = relationship("User", foreign_keys=[approved_by])
+    approver = relationship("User", foreign_keys=[approved_by], overlaps="supplier_profile")
     products = relationship("Product", back_populates="supplier", cascade="all, delete-orphan")
     
     # Indexes
