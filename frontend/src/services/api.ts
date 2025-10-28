@@ -57,4 +57,28 @@ api.interceptors.response.use(
   }
 );
 
+// Cart API functions
+export const cartApi = {
+  getCart: () => api.get('/api/v1/cart/'),
+  addItem: (productId: number, quantity: number) => 
+    api.post('/api/v1/cart/items/', { product_id: productId, quantity }),
+  updateItem: (itemId: string, quantity: number) => 
+    api.put(`/api/v1/cart/items/${itemId}`, { quantity }),
+  removeItem: (itemId: string) => 
+    api.delete(`/api/v1/cart/items/${itemId}`),
+  clearCart: () => api.delete('/api/v1/cart/'),
+};
+
+// Orders API functions
+export const ordersApi = {
+  calculateOrder: (checkoutData: any) => 
+    api.post('/api/v1/orders/calculate', checkoutData),
+  createOrder: (checkoutData: any) => 
+    api.post('/api/v1/orders/', checkoutData),
+  getOrders: (skip = 0, limit = 100) => 
+    api.get(`/api/v1/orders/?skip=${skip}&limit=${limit}`),
+  getOrder: (orderId: string) => 
+    api.get(`/api/v1/orders/${orderId}`),
+};
+
 export default api;

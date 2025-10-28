@@ -5,12 +5,12 @@ import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/Card'
 import { Button } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
 import { Header } from '../components/Header';
-import { CartItem } from '../components/CartItem';
 import { ArrowLeft, CreditCard, Truck, CheckCircle } from 'lucide-react';
+import { ordersApi } from '../services/api';
 
 export const CheckoutPage: React.FC = () => {
   const { state, clearCart } = useCart();
-  const { items, totalItems, totalPrice } = state;
+  const { items, totalPrice } = state;
   
   const [currentStep, setCurrentStep] = useState(1);
   const [shippingAddress, setShippingAddress] = useState<ShippingAddress>({
@@ -53,20 +53,40 @@ export const CheckoutPage: React.FC = () => {
 
   // Calculate order totals
   useEffect(() => {
-    const subtotal = totalPrice;
-    const taxRate = 0.08; // 8% tax rate
-    const taxAmount = subtotal * taxRate;
-    const shippingCost = subtotal > 100 ? 0 : 15; // Free shipping over $100
-    const totalAmount = subtotal + taxAmount + shippingCost;
+    const calculateTotals = async () => {
+      try {
+        const checkoutData = {
+          shipping_address: shippingAddress,
+          billing_address: useSameAddress ? shippingAddress : billingAddress,
+          payment_method: paymentMethod,
+          notes: orderNotes,
+        };
+        
+        const response = await ordersApi.calculateOrder(checkoutData);
+        setOrderCalculation(response.data);
+      } catch (error) {
+        console.error('Error calculating order totals:', error);
+        // Fallback to client-side calculation
+        const subtotal = totalPrice;
+        const taxRate = 0.08;
+        const taxAmount = subtotal * taxRate;
+        const shippingCost = subtotal > 100 ? 0 : 15;
+        const totalAmount = subtotal + taxAmount + shippingCost;
 
-    setOrderCalculation({
-      subtotal,
-      tax_amount: taxAmount,
-      shipping_cost: shippingCost,
-      total_amount: totalAmount,
-      currency: 'USD',
-    });
-  }, [totalPrice]);
+        setOrderCalculation({
+          subtotal,
+          tax_amount: taxAmount,
+          shipping_cost: shippingCost,
+          total_amount: totalAmount,
+          currency: 'USD',
+        });
+      }
+    };
+
+    if (items.length > 0) {
+      calculateTotals();
+    }
+  }, [totalPrice, shippingAddress, billingAddress, useSameAddress, paymentMethod, orderNotes, items.length]);
 
   // Redirect if cart is empty
   useEffect(() => {
@@ -114,25 +134,23 @@ export const CheckoutPage: React.FC = () => {
     setIsProcessing(true);
     
     try {
-      // TODO: Implement actual order placement
-      console.log('Placing order:', {
+      const checkoutData = {
         shipping_address: shippingAddress,
         billing_address: useSameAddress ? shippingAddress : billingAddress,
         payment_method: paymentMethod,
         notes: orderNotes,
-        items: items,
-        calculation: orderCalculation,
-      });
+      };
       
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      const response = await ordersApi.createOrder(checkoutData);
+      console.log('Order created:', response.data);
       
       // Clear cart and show success
       clearCart();
       setCurrentStep(4);
     } catch (error) {
       console.error('Error placing order:', error);
-      // TODO: Show error message
+      // TODO: Show error message to user
+      alert('Failed to place order. Please try again.');
     } finally {
       setIsProcessing(false);
     }

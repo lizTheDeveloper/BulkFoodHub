@@ -1,7 +1,7 @@
 import React from 'react';
 import { X, Plus, Minus, Trash2 } from 'lucide-react';
 import { Button } from './ui/Button';
-import { Card, CardContent, CardHeader, CardTitle } from './ui/Card';
+import { Card, CardContent } from './ui/Card';
 import { useCart } from '../contexts/CartContext';
 
 interface CartDrawerProps {

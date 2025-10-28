@@ -23,7 +23,7 @@ export const Header: React.FC<HeaderProps> = ({
 }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const { state } = useCart();
+  const { state: cartState } = useCart();
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();

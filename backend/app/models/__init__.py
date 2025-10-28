@@ -214,15 +214,18 @@ class Order(Base):
     """Order model for customer orders."""
     __tablename__ = "orders"
     
-    id = Column(Integer, primary_key=True, index=True)
+    id = Column(String(255), primary_key=True, index=True)
     user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
     shipping_address_id = Column(Integer, ForeignKey("addresses.id"), nullable=False)
+    billing_address_id = Column(Integer, ForeignKey("addresses.id"), nullable=True)
     order_number = Column(String(50), unique=True, nullable=False, index=True)
     status = Column(Enum(OrderStatus), default=OrderStatus.PENDING, nullable=False)
     subtotal = Column(Numeric(10, 2), nullable=False)
     tax_amount = Column(Numeric(10, 2), nullable=False, default=0)
     shipping_cost = Column(Numeric(10, 2), nullable=False, default=0)
     total_amount = Column(Numeric(10, 2), nullable=False)
+    currency = Column(String(3), default="USD", nullable=False)
+    payment_method = Column(String(50), nullable=True)
     payment_status = Column(Enum(PaymentStatus), default=PaymentStatus.PENDING, nullable=False)
     payment_intent_id = Column(String(255), nullable=True)  # Stripe payment intent
     notes = Column(Text, nullable=True)
@@ -251,13 +254,14 @@ class OrderItem(Base):
     """Order item model for individual products in orders."""
     __tablename__ = "order_items"
     
-    id = Column(Integer, primary_key=True, index=True)
-    order_id = Column(Integer, ForeignKey("orders.id"), nullable=False)
+    id = Column(String(255), primary_key=True, index=True)
+    order_id = Column(String(255), ForeignKey("orders.id"), nullable=False)
     product_id = Column(Integer, ForeignKey("products.id"), nullable=False)
     quantity = Column(Numeric(10, 2), nullable=False)
     unit_price = Column(Numeric(10, 2), nullable=False)
     total_price = Column(Numeric(10, 2), nullable=False)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
+    updated_at = Column(DateTime(timezone=True), onupdate=func.now())
     
     # Relationships
     order = relationship("Order", back_populates="order_items")
@@ -292,6 +296,56 @@ class PricingTier(Base):
         Index('idx_pricing_tier_range', 'min_order_value', 'max_order_value'),
         CheckConstraint('min_order_value >= 0', name='check_non_negative_min_order'),
         CheckConstraint('discount_percentage >= 0 AND discount_percentage <= 100', name='check_valid_discount'),
+    )
+
+
+class Cart(Base):
+    """Shopping cart model for users."""
+    __tablename__ = "carts"
+    
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=False, unique=True)
+    total_items = Column(Integer, default=0, nullable=False)
+    total_price = Column(Numeric(10, 2), default=0, nullable=False)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+    updated_at = Column(DateTime(timezone=True), onupdate=func.now())
+    
+    # Relationships
+    user = relationship("User")
+    items = relationship("CartItem", back_populates="cart", cascade="all, delete-orphan")
+    
+    # Indexes
+    __table_args__ = (
+        Index('idx_cart_user', 'user_id'),
+        CheckConstraint('total_items >= 0', name='check_non_negative_total_items'),
+        CheckConstraint('total_price >= 0', name='check_non_negative_total_price'),
+    )
+
+
+class CartItem(Base):
+    """Cart item model for individual products in cart."""
+    __tablename__ = "cart_items"
+    
+    id = Column(String(255), primary_key=True, index=True)
+    cart_id = Column(Integer, ForeignKey("carts.id"), nullable=False)
+    product_id = Column(Integer, ForeignKey("products.id"), nullable=False)
+    quantity = Column(Numeric(10, 2), nullable=False)
+    unit_price = Column(Numeric(10, 2), nullable=False)
+    total_price = Column(Numeric(10, 2), nullable=False)
+    added_at = Column(DateTime(timezone=True), server_default=func.now())
+    updated_at = Column(DateTime(timezone=True), onupdate=func.now())
+    
+    # Relationships
+    cart = relationship("Cart", back_populates="items")
+    product = relationship("Product")
+    
+    # Indexes and constraints
+    __table_args__ = (
+        Index('idx_cart_item_cart', 'cart_id'),
+        Index('idx_cart_item_product', 'product_id'),
+        CheckConstraint('quantity > 0', name='check_positive_cart_quantity'),
+        CheckConstraint('unit_price >= 0', name='check_non_negative_cart_unit_price'),
+        CheckConstraint('total_price >= 0', name='check_non_negative_cart_total_price'),
     )
 
 

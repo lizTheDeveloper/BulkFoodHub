@@ -1,5 +1,5 @@
 import React from 'react';
-import { Minus, Plus, Trash2, X } from 'lucide-react';
+import { Minus, Plus, Trash2 } from 'lucide-react';
 import { useCart } from '../contexts/CartContext';
 import { CartItem as CartItemType } from '../types';
 import { Button } from './ui/Button';
@@ -32,7 +32,7 @@ export const CartItem: React.FC<CartItemProps> = ({
     if (onUpdateQuantity) {
       onUpdateQuantity(item.id, newQuantity);
     } else {
-      updateQuantity(item.id, newQuantity);
+      updateQuantity(item.product.id, newQuantity);
     }
   };
 
@@ -40,7 +40,7 @@ export const CartItem: React.FC<CartItemProps> = ({
     if (onRemove) {
       onRemove(item.id);
     } else {
-      removeItem(item.id);
+      removeItem(item.product.id);
     }
   };
 
